@@ -2,10 +2,21 @@
 <div class="container">
 <form action="#" class="form">
   <div class="form">
-    <label for="search" class="form-label">Search robots...</label>
-    <input type="text" class="form-control-lg" id="search" aria-describedby="search">
+    <input [(ngModel)]="filterTerm" [ngModelOptions]="{standalone: true}" class="form-control-lg" placeholder="Search robots...">
   </div>
 </form>
 </div>
-
-<app-card></app-card>
+<div class="row row-cols-2 row-cols-md-3 g-3 m-5">
+  <div class="col p-3 mt-5" *ngFor="let robot of Robots | filter: filterTerm">
+    <div class="card" style="width: 18rem;" >
+      <img src="{{ robot.img }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ robot.name }}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ robot.username }}</li>
+        <li class="list-group-item"> {{ robot.email }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

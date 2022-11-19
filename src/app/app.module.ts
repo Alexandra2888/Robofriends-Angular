@@ -5,21 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { CardComponent } from './components/card/card.component';
-import { CardListComponent } from './components/card-list/card-list.component';
+import { FormsModule } from "@angular/forms";
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CardComponent,
-    CardListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        Ng2SearchPipeModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
